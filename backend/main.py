@@ -1,5 +1,5 @@
-from typing import Union
 from fastapi import FastAPI
+from backend.routers import expense
 
 app = FastAPI(
     title= "Control de gastos API",
@@ -7,10 +7,8 @@ app = FastAPI(
     version="0.1.0"
 )
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
+#Routes
+app.include_router(expense.router, prefix="/expenses", tags=["Expenses"])
 
 @app.get("/health")
 def dummy():
