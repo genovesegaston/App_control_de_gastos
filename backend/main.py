@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from backend.routers import expense
+from fastapi import FastAPI,APIRouter
+from backend.routers.expense import expense
 
 app = FastAPI(
     title= "Control de gastos API",
@@ -8,7 +8,7 @@ app = FastAPI(
 )
 
 #Routes
-app.include_router(expense.router, prefix="/expenses", tags=["Expenses"])
+app.include_router(expense, prefix="/expenses", tags=["Expenses"])
 
 @app.get("/health")
 def dummy():
