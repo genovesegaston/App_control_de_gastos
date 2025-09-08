@@ -1,7 +1,8 @@
 from fastapi import APIRouter
 
-expense = APIRouter()
+app = FastAPI()
+
 
 @expense.get("/")
 def expenses():
-    return {"status":"ok","route":"/expenses","hotReload":"ok"}
+    return {"status": "ok", "route": "/expenses"}
