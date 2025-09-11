@@ -1,9 +1,2 @@
-from .database import SessionLocal
-
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+from models.database import Base,engine
+Base.metadata.create_all(engine)

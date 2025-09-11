@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
+
 DATABASE_URL = "sqlite:///./db/control_gastos.db"
 
 
@@ -18,4 +19,8 @@ SessionLocal = sessionmaker(
     bind=engine
 )
 
+session = SessionLocal()
+
 Base = declarative_base()
+
+Base.metadata.create_all(engine)

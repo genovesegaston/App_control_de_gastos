@@ -1,6 +1,6 @@
 from pydantic import BaseModel, ConfigDict
 from datetime import date
-from categories import CategoryOut
+from backend.schemas.categories import CategoryOut
 
 
 class ExpensesBase(BaseModel):
@@ -11,7 +11,7 @@ class ExpensesBase(BaseModel):
 
 
 class ExpensesCreate(ExpensesBase):
-    category_id: int
+    pass
 
 
 class Expenses(ExpensesBase):
