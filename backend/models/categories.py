@@ -1,5 +1,6 @@
-from database import Base
+from backend.models.database import Base
 from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship()
 
 
 class Category(Base):
@@ -7,3 +8,4 @@ class Category(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(50))
+    expenses = relationship("Expense",back_populates="category")
